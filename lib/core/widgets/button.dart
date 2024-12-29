@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:water_project/constants.dart';
+import 'package:water_project/core/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -28,50 +28,42 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
           side: isSecondary
-              ? BorderSide(color: bgColor ?? theme.primaryColor, width: 2)
+              ? BorderSide(color: bgColor ?? theme.primaryColor, width: 1.5)
               : null,
           backgroundColor:
               isSecondary ? Colors.transparent : bgColor ?? theme.primaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(kDefaultPadding2x),
+            borderRadius: BorderRadius.circular(kDefaultPadding),
           ),
           elevation: 0),
-      child: showIcon
-          ? Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: kDefaultPadding, horizontal: kDefaultPadding2x),
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    iconLink!,
-                    color: isSecondary
-                        ? bgColor ?? theme.primaryColor
-                        : textColor ?? Colors.white,
-                  ),
-                  const SizedBox(width: kDefaultPadding),
-                  Text(
-                    text,
-                    style: theme.textTheme.bodyText1!.copyWith(
-                        fontSize: 20,
-                        color:
-                            isSecondary ? bgColor : textColor ?? Colors.white),
-                  ),
-                ],
-              ),
-            )
-          : Center(
-              child: Padding(
-                padding: const EdgeInsets.all(kDefaultPadding),
-                child: Text(
-                  text,
-                  style: theme.textTheme.bodyText1!.copyWith(
-                      fontSize: 20,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(kDefaultPadding),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              showIcon
+                  ? SvgPicture.asset(
+                      iconLink!,
                       color: isSecondary
                           ? bgColor ?? theme.primaryColor
-                          : textColor ?? Colors.white),
-                ),
+                          : textColor ?? Colors.white,
+                    )
+                  : const SizedBox(),
+              showIcon
+                  ? const SizedBox(width: kDefaultPadding)
+                  : const SizedBox(),
+              Text(
+                text,
+                style: theme.textTheme.bodyLarge!.copyWith(
+                    color: isSecondary
+                        ? bgColor ?? theme.primaryColor
+                        : textColor ?? Colors.white),
               ),
-            ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
+import '../../../core/constants.dart';
 import '../../../core/widgets/custom_card.dart';
 
 class FlowStatus extends StatelessWidget {
@@ -21,7 +21,7 @@ class FlowStatus extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         //mainAxisSize: MainAxisSize.min,
         children: [
-          Text("Status", style: theme.textTheme.bodyText1),
+          Text("Status", style: theme.textTheme.bodyLarge),
           const SizedBox(
             height: kDefaultPadding,
           ),
@@ -33,7 +33,7 @@ class FlowStatus extends StatelessWidget {
                 borderRadius: BorderRadius.circular(kDefaultPadding2x)),
             child: Text(
               isNormal ? "Normal" : "Abnormal",
-              style: theme.textTheme.bodyText1!
+              style: theme.textTheme.bodyLarge!
                   .copyWith(fontSize: 20, color: Colors.white),
             ),
           )

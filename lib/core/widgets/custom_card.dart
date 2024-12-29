@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import '../constants.dart';
 
 class CustomCard extends StatelessWidget {
   final Widget child;
@@ -17,7 +17,6 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
     return Container(
         padding: const EdgeInsets.all(kDefaultPadding2x),
         decoration: BoxDecoration(

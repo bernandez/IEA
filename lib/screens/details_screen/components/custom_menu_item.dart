@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../../../core/constants.dart';
 
 class CustomMenuItem extends StatelessWidget {
   final String title;
@@ -50,7 +50,7 @@ class CustomMenuItem extends StatelessWidget {
               ),
               const SizedBox(width: kDefaultPadding),
               Text(title,
-                  style: theme.textTheme.bodyText1!.copyWith(
+                  style: theme.textTheme.bodyLarge!.copyWith(
                       fontSize: 18,
                       color: isSelected!
                           ? theme.primaryColor
